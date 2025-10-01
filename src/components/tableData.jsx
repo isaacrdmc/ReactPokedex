@@ -1,42 +1,31 @@
-
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function TableData() {
     return (
-
-        <div>
-            <table className="table table-striped">
+        // Usar una tarjeta para darle el borde que se ve en la imagen
+        <div className="card p-2"> 
+            <table className="table table-striped mb-0">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Apellido Paterno</th>
-                        <th scope="col">Apellido Materno</th>
-                        <th scope="col">Edad</th>
+                        <th scope="col" >Nombre</th>
+                        <th scope="col" >Apellido</th>
+                        <th scope="col" >Apellido 2</th>
+                        <th scope="col" >Edad</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>@social</td>
-                        <td>@social</td>
-                    </tr>
+                    {/* Puedes dejar filas vacías para simular la cuadrícula de la imagen */}
+                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
+                    <tr><td>&nbsp;</td><td></td><td></td><td></td></tr>
                 </tbody>
             </table>
         </div>
