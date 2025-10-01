@@ -17,6 +17,8 @@ export default function GridPokedex({ onSelectPokemon, pokedexList }) {
             // ? Actualizamos el estado para mostrar el pokemon seleccionado:
             onSelectPokemon(detallesPokemon);
 
+            console.table(detallesPokemon);
+
         } catch (error) {
             console.log("Error al obtener los detalles del pokemon: ", error);
         }
