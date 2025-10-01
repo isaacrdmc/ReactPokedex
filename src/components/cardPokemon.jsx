@@ -3,7 +3,7 @@
 
 
 // ? Acá es donde se mostraran los datos del pokemon seleccionado
-export default function CardPokemon() {
+export default function CardPokemon({ pokemon }) {
     return (
         <div className="card">
             {/* <img src="..." className="card-img-top" alt="..."> */}

@@ -2,13 +2,38 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import CardPokemon from './cardPokemon';
 import GridPokedex from './gridPokedex';
-// import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
+
+// Función para obtener la lista inicial (separada para mantener la limpieza)
+const ListaPokedex = async (setList) => {
+    const url = "https://pokeapi.co/api/v2/pokemon?limit=20";
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        // Almacena el array 'results' en el estado
+        setList(data.results); 
+    } catch (error) {
+        console.error("Error al obtener la lista de Pokémon:", error);
+    }
+};
 
 
 export default function Body() {
-    // ? Creamos el estado para seleccionar el componente:
-    // const [usuarioSeleccionado, setUsuarioSeleccionado] = useState(null); 
+    
+    
+    // * Creamos el estado para seleccionar el pokemon:
+    const [pokemonSeleccionado, setPokemonSeleccionado] = useState(null); 
+
+    // * Creamos el estado para la lista de los pokemnos:
+    const [ListaPokemon, setListaPokemon] = useState([]);
+
+
+    // * Usamos el effecto para cargar la lista a la hora d emontar la web:
+    useEffect(() => {
+        // ? Le pasamos para agregar la lista de los datos 
+        ListaPokedex(setListaPokemon);
+    }, []);
         
 
 
@@ -17,14 +42,15 @@ export default function Body() {
             <Row>
                 <Col md={4} className="mb-"> 
                 {/* // ? Le pasmos el valor del estado */}
-                    <CardPokemon />
-                    {/* <CardInfo user={usuarioSeleccionado}/> */}
+                    <CardPokemon pokemon={pokemonSeleccionado} />
                 </Col>
                 
                 <Col md={7}> 
                     {/* // ? Le pasmos el JSON junto con el modificador del estado */}
-                    <GridPokedex />
-                    {/* <TableData usuarios={usuarios} setUsuarioSeleccionado={setUsuarioSeleccionado}/> */}
+                    <GridPokedex 
+                        pokedexList={ListaPokemon}      // * Le pasamos 
+                        onSelectPokemon={setPokemonSeleccionado} 
+                    />
                 </Col>
             </Row>
         </Container>
