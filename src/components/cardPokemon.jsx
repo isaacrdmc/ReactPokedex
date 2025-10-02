@@ -2,7 +2,7 @@
 
 
 
-import { Card, Form, Button, Image } from 'react-bootstrap'; // Si usas react-bootstrap
+import { Card, Image } from 'react-bootstrap'; // Si usas react-bootstrap
 
 
 
@@ -66,25 +66,3 @@ export default function CardPokemon({ pokemon }) {
         </div>
     );
 }
-
-
-
-/*
-
-  "types": [
-    {
-      "slot": 1,
-      "type": {
-        "name": "grass",
-        "url": "https://pokeapi.co/api/v2/type/12/"
-      }
-    },
-    {
-      "slot": 2,
-      "type": {
-        "name": "poison",
-        "url": "https://pokeapi.co/api/v2/type/4/"
-      }
-    }
-  ],
-*/

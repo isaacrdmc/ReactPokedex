@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 // Función para obtener la lista inicial (separada para mantener la limpieza)
 const ListaPokedex = async (setList) => {
-    const url = "https://pokeapi.co/api/v2/pokemon?limit=600";
+    const url = "https://pokeapi.co/api/v2/pokemon?limit=10000";
     try {
         const response = await fetch(url);
         const data = await response.json();
@@ -41,6 +41,7 @@ export default function Body() {
         <Container className="my-4">
             <Row>
                 <Col md={4} className="mb-"> 
+
                 {/* // ? Le pasmos el valor del estado */}
                     <CardPokemon pokemon={pokemonSeleccionado} />
                 </Col>
