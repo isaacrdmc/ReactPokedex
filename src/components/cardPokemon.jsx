@@ -1,3 +1,6 @@
+/* eslint-disable react/prop-types */
+
+
 
 import { Card, Form, Button, Image } from 'react-bootstrap'; // Si usas react-bootstrap
 

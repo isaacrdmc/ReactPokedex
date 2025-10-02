@@ -7,7 +7,7 @@ import Header from './components/Header'
 function App() {
   return (
     <>
-      <Header titulo={"Hola Mundo!"}/>
+      <Header titulo={"Atrapalos a todos!!"}/>
       <Body />
       <Footer />
     <main>
