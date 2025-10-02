@@ -1,23 +1,25 @@
 /* -------------------------------------------------------------------------- */
-/* Variables y Tipografía                            */
+/* Variables y Tipografía - Estilo "Pokédex Moderno/Dark Mode" */
 /* -------------------------------------------------------------------------- */
 
 :root {
-    /* Colores primarios de Pokémon (Rojo Pokeball, Negro, Amarillo de Pikachu) */
-    --pokemon-red: #CC0000;
-    --pokemon-black: #2A75BB; /* Un azul/negro oscuro para contraste */
-    --pokemon-yellow: #FFDE00;
-    --pokemon-light: #F0F0F0; /* Fondo general */
-    --pokemon-border: #333333;
+    /* Colores primarios (Fondo Oscuro, Rojo de Alto Contraste, Amarillo de Detalle) */
+    --pokemon-dark: #1E2129; /* Fondo muy oscuro, azul-negro */
+    --pokemon-secondary-dark: #2A303C; /* Fondo para tarjetas y tablas */
+    --pokemon-accent-red: #E74C3C; /* Rojo de alto contraste (similar al de la imagen) */
+    --pokemon-accent-yellow: #FFC300; /* Amarillo brillante para texto clave */
+    --pokemon-light-text: #F8F9FA; /* Texto claro */
+    --pokemon-border: #4D5667; /* Borde suave */
     
-    /* Fuente retro/consola */
-    --font-pokedex: "Courier New", Courier, monospace;
+    /* Fuente moderna y legible */
+    --font-pokedex: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 }
 
 body {
-    background-color: var(--pokemon-light);
+    background-color: var(--pokemon-dark);
     font-family: var(--font-pokedex);
-    color: var(--pokemon-border);
+    color: var(--pokemon-light-text);
+    line-height: 1.6;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -29,105 +31,131 @@ body {
 }
 
 /* -------------------------------------------------------------------------- */
-/* Header (Navbar)                             */
+/* Header (Navbar) - Barra Superior Roja y Negras */
 /* -------------------------------------------------------------------------- */
 
 .navbar {
-    background-color: var(--pokemon-red) !important;
-    border-bottom: 5px solid var(--pokemon-border);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    background-color: var(--pokemon-accent-red) !important; /* Barra superior roja */
+    border-bottom: 5px solid var(--pokemon-dark);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 0; /* Sin bordes redondeados arriba */
 }
 
 .navbar-brand {
-    color: var(--pokemon-light) !important;
-    font-weight: bold;
-    text-shadow: 1px 1px 2px var(--pokemon-black);
+    color: var(--pokemon-light-text) !important;
+    font-weight: 800;
+    text-shadow: 1px 1px 1px var(--pokemon-dark);
+    letter-spacing: 2px;
+    font-size: 1.75rem;
+    padding-left: 1rem;
 }
 
 /* -------------------------------------------------------------------------- */
-/* CardPokemon (Visor)                             */
+/* Componentes Compartidos (Cards)                  */
 /* -------------------------------------------------------------------------- */
 
 .card {
-    /* Aspecto de dispositivo Pokédex */
-    border: 4px solid var(--pokemon-border) !important;
-    border-radius: 10px !important;
-    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.4);
-    transition: transform 0.2s, box-shadow 0.2s;
+    /* Fondo oscuro para todas las tarjetas */
+    border: 1px solid var(--pokemon-border) !important;
+    border-radius: 8px !important;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: all 0.3s ease;
+    background-color: var(--pokemon-secondary-dark);
+    color: var(--pokemon-light-text);
 }
 
-/* Fondo para la carta del Pokémon seleccionado (similar al Pokédex) */
+/* -------------------------------------------------------------------------- */
+/* CardPokemon (Visor) - Tarjeta de color rojo/oscuro          */
+/* -------------------------------------------------------------------------- */
+
 .col-md-4 .card {
-    background-color: var(--pokemon-red);
-    color: var(--pokemon-light);
+    background-color: var(--pokemon-secondary-dark); 
+    border: none !important;
+    border-radius: 12px;
+    /* Contenedor principal con sombra roja */
+    box-shadow: 0 0 20px rgba(231, 76, 60, 0.5); 
+}
+
+/* Título del Pokemon (similar a la barra roja de la imagen) */
+.col-md-4 .card-body:first-child {
+    background-color: var(--pokemon-accent-red);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px 8px 0 0;
+    box-shadow: inset 0 -3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.col-md-4 .card-title {
+    font-size: 2rem;
+    color: var(--pokemon-light-text);
+    text-shadow: 1px 1px 0 var(--pokemon-dark);
+    font-weight: 800;
+    margin-bottom: 0;
 }
 
 .col-md-4 .card-img-top {
     /* Área de visualización de la imagen */
-    background-color: var(--pokemon-light);
-    border-bottom: 2px solid var(--pokemon-border);
-    padding: 10px;
-    border-radius: 6px 6px 0 0;
-    margin: 10px;
-    width: auto;
-    max-height: 250px;
+    background-color: var(--pokemon-secondary-dark);
+    border-bottom: none;
+    padding: 10px 20px;
+    margin: 0;
+    width: 100%;
+    max-height: 280px;
     object-fit: contain;
-    /* Efecto de pantalla (pequeño borde interior) */
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.4);
 }
 
-.col-md-4 .card-body {
-    background-color: var(--pokemon-red);
-    padding-top: 5px;
-}
-
-.col-md-4 .card-title {
-    font-size: 1.5rem;
-    color: var(--pokemon-yellow);
-    text-shadow: 1px 1px 1px var(--pokemon-black);
-    margin-bottom: 0.5rem;
-}
-
+/* Detalles (Altura/Peso) - Barra inferior azul oscuro */
 .col-md-4 .card-text {
-    color: var(--pokemon-light);
+    background-color: var(--pokemon-dark);
+    padding: 0.75rem 1rem;
+    color: var(--pokemon-light-text);
+    border-top: 1px solid var(--pokemon-border);
+    margin: 0;
+    font-size: 0.9rem;
 }
 
-/* Lista de tipos (Stats/Datos Adicionales) */
+/* Etiqueta de Tipos */
 .list-group-flush {
     border-top: 2px solid var(--pokemon-border);
 }
 
 .list-group-item {
-    background-color: rgba(255, 255, 255, 0.1); /* Ligero overlay transparente */
-    border-color: rgba(255, 255, 255, 0.2) !important;
-    color: var(--pokemon-light);
-    font-weight: bold;
-    text-align: center;
+    background-color: var(--pokemon-dark); /* Fondo muy oscuro para elementos de lista */
+    border-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--pokemon-accent-yellow);
+    font-weight: 600;
+    text-align: left;
+    padding-left: 1rem;
 }
 
 /* -------------------------------------------------------------------------- */
-/* GridPokedex (Tabla)                               */
+/* GridPokedex (Tabla) - Área de lista          */
 /* -------------------------------------------------------------------------- */
 
 .col-md-7 .card {
-    background-color: var(--pokemon-black); /* Fondo oscuro para el área de la lista */
-    color: var(--pokemon-light);
+    background-color: var(--pokemon-secondary-dark); 
+    border: none !important;
+    padding: 1rem;
 }
 
 .table {
     margin-bottom: 0;
-    border: none !important;
-    background-color: var(--pokemon-black);
-    color: var(--pokemon-light);
-    border-radius: 0 !important;
+    background-color: var(--pokemon-secondary-dark);
+    color: var(--pokemon-light-text);
 }
 
 .table thead th {
-    background-color: var(--pokemon-red);
-    color: var(--pokemon-yellow);
-    border-bottom: 3px solid var(--pokemon-border);
+    background-color: var(--pokemon-dark); /* Cabecera muy oscura */
+    color: var(--pokemon-accent-yellow);
+    border-bottom: 2px solid var(--pokemon-accent-red);
+    font-weight: 700;
+    font-size: 1rem;
+}
+
+/* Resaltado del texto en la columna ID */
+.table tbody tr td:first-child {
+    color: var(--pokemon-accent-yellow);
     font-weight: bold;
-    text-shadow: 1px 1px 0 var(--pokemon-black);
 }
 
 .table tbody tr {
@@ -136,15 +164,15 @@ body {
 }
 
 .table tbody tr:hover {
-    background-color: rgba(255, 222, 0, 0.3) !important; /* Resaltado amarillo semi-transparente */
+    background-color: rgba(231, 76, 60, 0.15) !important; /* Resaltado rojo suave */
 }
 
 /* Estilo para filas pares e impares (table-striped) */
 .table-striped > tbody > tr:nth-of-type(odd) > * {
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--pokemon-secondary-dark);
 }
 .table-striped > tbody > tr:nth-of-type(even) > * {
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.1); /* Ligeramente más oscuro para las pares */
 }
 
 .table tbody td {
@@ -154,60 +182,60 @@ body {
 
 /* Botón 'Visualizar' en la tabla */
 .btn-outline-primary {
-    color: var(--pokemon-yellow);
-    background-color: var(--pokemon-red);
-    border-color: var(--pokemon-yellow) !important;
-    font-weight: bold;
-    border-width: 2px;
+    color: var(--pokemon-light-text);
+    background-color: var(--pokemon-accent-red);
+    border-color: var(--pokemon-accent-red) !important;
+    font-weight: 600;
     text-transform: uppercase;
-    box-shadow: 2px 2px 0 var(--pokemon-border);
+    box-shadow: 0 4px 0 var(--pokemon-dark);
     transition: all 0.1s;
+    border-radius: 4px;
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:focus {
-    color: var(--pokemon-black) !important;
-    background-color: var(--pokemon-yellow) !important;
-    border-color: var(--pokemon-red) !important;
-    box-shadow: 0 0 0 var(--pokemon-border);
-    transform: translate(2px, 2px); /* Efecto presionado */
+    color: var(--pokemon-accent-yellow) !important;
+    background-color: #C0392B !important; /* Rojo más oscuro al hacer hover */
+    border-color: #C0392B !important;
+    box-shadow: 0 0 0 var(--pokemon-dark);
+    transform: translateY(4px); /* Efecto presionado */
 }
 
 /* -------------------------------------------------------------------------- */
-/* Paginación                                    */
+/* Paginación - Botones rojos de navegación */
 /* -------------------------------------------------------------------------- */
 
 .pagination {
-    border-top: 2px solid var(--pokemon-red);
-    padding-top: 10px;
+    border-top: none;
+    padding-top: 1rem;
 }
 
-.page-link {
-    color: var(--pokemon-red) !important;
-    background-color: var(--pokemon-light) !important;
-    border: 2px solid var(--pokemon-red) !important;
+.page-link, 
+.page-item .page-link {
+    color: var(--pokemon-light-text) !important;
+    background-color: var(--pokemon-accent-red) !important;
+    border: 2px solid var(--pokemon-dark) !important;
     margin: 0 2px;
-    border-radius: 5px !important;
-    font-weight: bold;
-    transition: background-color 0.2s, color 0.2s;
+    border-radius: 6px !important;
+    font-weight: 600;
 }
 
 .page-link:hover {
-    color: var(--pokemon-light) !important;
-    background-color: var(--pokemon-red) !important;
-    border-color: var(--pokemon-red) !important;
+    color: var(--pokemon-accent-yellow) !important;
+    background-color: #C0392B !important;
+    border-color: var(--pokemon-dark) !important;
 }
 
 .page-item.active .page-link {
-    background-color: var(--pokemon-black) !important;
-    color: var(--pokemon-yellow) !important;
-    border-color: var(--pokemon-black) !important;
+    background-color: var(--pokemon-dark) !important;
+    color: var(--pokemon-accent-yellow) !important;
+    border-color: var(--pokemon-accent-red) !important;
 }
 
 .page-item.disabled .page-link {
-    color: #999 !important;
-    background-color: var(--pokemon-light) !important;
-    border-color: #ccc !important;
+    color: #888 !important;
+    background-color: #333 !important;
+    border-color: #555 !important;
 }
 
 
@@ -216,22 +244,23 @@ body {
 /* -------------------------------------------------------------------------- */
 
 footer {
-    border-top: 5px solid var(--pokemon-red);
-    background-color: var(--pokemon-border); /* Fondo oscuro */
+    border-top: 5px solid var(--pokemon-accent-red);
+    background-color: var(--pokemon-dark);
     margin-top: 50px !important;
     padding-bottom: 0 !important;
 }
 
 .nav-link {
-    color: var(--pokemon-light) !important;
+    color: var(--pokemon-border) !important; /* Texto del footer en gris suave */
     transition: color 0.2s;
 }
 
 .nav-link:hover {
-    color: var(--pokemon-yellow) !important;
+    color: var(--pokemon-accent-red) !important;
 }
 
 .text-center.text-body-secondary {
-    color: var(--pokemon-light) !important;
+    color: var(--pokemon-border) !important;
     padding-bottom: 15px;
+    font-size: 0.85rem;
 }
