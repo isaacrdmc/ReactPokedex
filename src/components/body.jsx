@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 // Función para obtener la lista inicial (separada para mantener la limpieza)
 const ListaPokedex = async (setList) => {
-    const url = "https://pokeapi.co/api/v2/pokemon?limit=20";
+    const url = "https://pokeapi.co/api/v2/pokemon?limit=600";
     try {
         const response = await fetch(url);
         const data = await response.json();
