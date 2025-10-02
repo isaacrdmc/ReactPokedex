@@ -13,7 +13,7 @@
 }
 
 body {
-    background-color: var(--pokemon-light);
+    background-color: var(--pokemon-border);
     font-family: var(--font-pokedex);
     color: var(--pokemon-border);
 }
